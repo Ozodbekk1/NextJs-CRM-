@@ -12,7 +12,7 @@ export const Navbar = () => {
         <Link href="/">
           <div className="flex items-center">
             <Image src="/img/logo.png" alt="logo" width={40} height={40} />
-            <span className="text-2xl font-bold pl-2 opacity-75">Drive</span>
+            <span className="text-2xl font-bold pl-2 opacity-75">Logo</span>
           </div>
         </Link>
 
