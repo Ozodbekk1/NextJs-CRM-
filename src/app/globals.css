@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Lexend";
+  src: url("/fonts/Lexend-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Lexend", sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

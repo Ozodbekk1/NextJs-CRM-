@@ -1,18 +1,19 @@
-import React from "react";
-import { Navbar, Sidebar } from "@/components";
+import { Navbar, Sidebar } from "../components";
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div>
-      <Navbar />
-      <Sidebar />
-      <main className="h-full min-h-[93vh] relative top-[7vh] ml-72 bg-[#f6f9fc] dark:bg-[#1f1f1f] p-4">
-        <div className="h-[89vh] rounded-md ml-4 bg-white dark:bg-black p-8">
-          {children}
+    <html lang="en">
+      <body className="flex">
+        <Sidebar />
+        <div className="flex-1">
+          <Navbar />
+          <main className="ml-64 mt-[7vh] p-6 w-full">{children}</main>
         </div>
-      </main>
-    </div>
+      </body>
+    </html>
   );
-};
-
-export default RootLayout;
+}
