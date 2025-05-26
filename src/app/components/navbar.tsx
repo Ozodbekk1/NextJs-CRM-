@@ -15,6 +15,7 @@ export const Navbar = () => {
             Good Morning
           </span>
         </div>
+
         <div className="flex items-center space-x-4">
           <input
             type="text"
