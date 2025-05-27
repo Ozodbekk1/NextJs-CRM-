@@ -49,7 +49,6 @@ const stats = [
 export default function DashboardStats() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 p-4">
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {stats.map((stat, index) => (
           <Card key={index} className="shadow-md">
@@ -85,8 +84,6 @@ export default function DashboardStats() {
           </Card>
         ))}
       </div>
-
-      {/* Schedule Card */}
       <MyScheduleCard />
     </div>
   );
