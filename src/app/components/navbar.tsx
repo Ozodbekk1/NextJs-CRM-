@@ -52,7 +52,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center h-[7vh] fixed top-0 left-64 right-0 z-30 pt-4 bg-white dark:bg-[#1a1a1a]">
+    <div className="flex items-center h-[9vh] fixed top-0 left-64 right-0 z-30 pt-4 bg-white dark:bg-[#16151C]">
       <div className="flex items-center justify-between w-full mx-6">
         <Header
           greeting={headerProps?.greeting}
