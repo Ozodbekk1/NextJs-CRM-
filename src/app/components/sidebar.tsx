@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
@@ -30,43 +30,43 @@ export const Sidebar = () => {
     },
     {
       name: "Attendance",
-      defaultIcon: "/icons/attendance-default.svg",
-      activeIcon: "/icons/attendance-active.svg",
-      href: "/attendance",
+      defaultIcon: "/icons/attendence.svg",
+      activeIcon: "/icons/attendence-active.svg",
+      href: "/attendence",
     },
     {
       name: "Payroll",
-      defaultIcon: "/icons/payroll-default.svg",
+      defaultIcon: "/icons/payroll.svg",
       activeIcon: "/icons/payroll-active.svg",
       href: "/payroll",
     },
     {
       name: "Jobs",
-      defaultIcon: "/icons/jobs-default.svg",
+      defaultIcon: "/icons/jobs.svg",
       activeIcon: "/icons/jobs-active.svg",
       href: "/jobs",
     },
     {
       name: "Candidates",
-      defaultIcon: "/icons/candidates-default.svg",
-      activeIcon: "/icons/candidates-active.svg",
+      defaultIcon: "/icons/canditates.svg",
+      activeIcon: "/icons/canditates-active.svg",
       href: "/candidates",
     },
-    {
-      name: "Leaves",
-      defaultIcon: "/icons/leaves-default.svg",
-      activeIcon: "/icons/leaves-active.svg",
-      href: "/leaves",
-    },
+    // {
+    //   name: "Leaves",
+    //   defaultIcon: "/icons/leaves-default.svg",
+    //   activeIcon: "/icons/leaves-active.svg",
+    //   href: "/leaves",
+    // },
     {
       name: "Holidays",
-      defaultIcon: "/icons/holidays-default.svg",
+      defaultIcon: "/icons/holidays.svg",
       activeIcon: "/icons/holidays-active.svg",
       href: "/holidays",
     },
     {
       name: "Settings",
-      defaultIcon: "/icons/settings-default.svg",
+      defaultIcon: "/icons/settings.svg",
       activeIcon: "/icons/settings-active.svg",
       href: "/settings",
     },
