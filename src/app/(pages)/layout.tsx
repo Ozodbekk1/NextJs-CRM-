@@ -7,11 +7,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex">
+      <body className="min-h-screen relative overflow-x-hidden">
         <Sidebar />
-        <div className="flex-1">
+        <div className="lg:ml-64 transition-all duration-300">
           <Navbar />
-          <main className="ml-64 mt-[7vh] p-6 bg-white dark:bg-[#16151C]">
+          <main className="mt-[7vh] p-6 bg-white dark:bg-[#16151C]">
             {children}
           </main>
         </div>
