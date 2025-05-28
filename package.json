@@ -24,11 +24,7 @@
     "chart.js": "^4.4.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-<<<<<<< HEAD
     "date-fns": "^4.1.0",
-=======
-    "input-otp": "^1.4.2",
->>>>>>> 9243c559ffacea78c7e84ccf604ab9da8e7ab85d
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "next-themes": "^0.4.6",
@@ -37,16 +33,10 @@
     "react-calendar": "^5.1.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
-<<<<<<< HEAD
-    "recharts": "^2.15.3",
-    "tailwind-merge": "^3.3.0"
-=======
-    "react-hook-form": "^7.56.4",
     "react-hot-toast": "^2.5.2",
+    "recharts": "^2.15.3",
     "tailwind-merge": "^3.3.0",
-    "zod": "^3.25.30",
     "zustand": "^5.0.5"
->>>>>>> 9243c559ffacea78c7e84ccf604ab9da8e7ab85d
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
