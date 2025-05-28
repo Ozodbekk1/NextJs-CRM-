@@ -31,21 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider
-<<<<<<< HEAD
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          storageKey="hrms-theme"
-        >
-=======
           attribute='class'
-          defaultTheme='light'
+          defaultTheme='system'
           enableSystem
           disableTransitionOnChange
-          storageKey='google-drive'>
+          storageKey='hrms-theme'>
           <Toaster position='top-right' />
->>>>>>> 285ea32 (auth with validations)
           {children}
         </ThemeProvider>
       </body>
