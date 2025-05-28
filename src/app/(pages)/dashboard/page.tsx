@@ -8,7 +8,6 @@ export default function Dashboard() {
   return (
     <div className="container mx-auto p-4 space-y-6">
       <div className="flex flex-col lg:flex-row gap-6">
-        {/* Left Section: Stat Cards and Chart */}
         <div className="flex-1 space-y-6">
           <StatCards />
           <Card>
@@ -17,12 +16,10 @@ export default function Dashboard() {
             </CardContent>
           </Card>
         </div>
-        {/* Right Section: MyScheduleCard */}
         <div className="lg:w-96">
           <MyScheduleCard />
         </div>
       </div>
-      {/* Bottom Section: Attendance Table */}
       <AttendanceTable />
     </div>
   );

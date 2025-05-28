@@ -1,17 +1,21 @@
+/** @format */
+
 import { type Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "../providers/theme-provider";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import NextTopLoader from "nextjs-toploader";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "HRMS",
@@ -26,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -35,6 +39,18 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="hrms-theme"
         >
+          <Toaster position="top-right" />{" "}
+          <NextTopLoader
+            color="var(--primary)"
+            initialPosition={0.5}
+            crawlSpeed={200}
+            height={3}
+            crawl
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px var(--primary), 0 0 5px var(--primary)"
+          />
           {children}
         </ThemeProvider>
       </body>
