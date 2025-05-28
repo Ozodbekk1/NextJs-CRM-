@@ -9,8 +9,8 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { loginSchema, LoginFormValues } from "../schemas/loginSchema";
+import { Checkbox } from "@/components/ui/checkbox";
 import icon from "../../../../public/img/logo.svg";
 
 const Login = () => {
