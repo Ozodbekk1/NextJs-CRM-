@@ -6,14 +6,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen relative overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning>
+      <body
+      // className="min-h-screen relative overflow-x-hidden"
+      // style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}
+      >
         <Sidebar />
         <div className="lg:ml-64 transition-all duration-300">
           <Navbar />
-          <main className="mt-[7vh] p-6 bg-white dark:bg-[#16151C]">
-            {children}
-          </main>
+          <main className="mt-[7vh] p-6 bg-background">{children}</main>
         </div>
       </body>
     </html>
