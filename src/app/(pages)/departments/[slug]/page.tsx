@@ -1,25 +1,24 @@
 /** @format */
+// "use client"
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { ArrowLeft, Eye, Pencil, Trash } from "lucide-react";
+import Link from "next/link";
 import {
   Table,
   TableBody,
   TableCaption,
   TableCell,
-  // TableFooter,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Eye, Filter, Pencil, Search, Trash } from "lucide-react";
-import { TableFooter } from "@mui/material";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
+type Props = {
+  params: { slug: string };
+};
 
 export type Employee = {
   id: string;
@@ -36,7 +35,7 @@ export type Employee = {
 const employees: Employee[] = [
   // Design Department
   {
-    id: "345321231",
+    id: "3453212314",
     name: "Darlene Robertson",
     avatar: "https://picsum.photos/200",
     role: "Lead UI/UX Designer",
@@ -262,7 +261,7 @@ const employees: Employee[] = [
   {
     id: "567890126",
     name: "Eleanor Pena",
-    avatar: "",
+    avatar: "https://picsum.photos/200",
     role: "Project Manager",
     email: "eleanor.p@hrms.com",
     designation: "Project Manager",
@@ -340,78 +339,36 @@ const employees: Employee[] = [
   },
 ];
 
-const departments = [
-  {
-    id: "design-department",
-    name: "Design Department",
-    employeeCount: employees.filter((e) => e.department === "Design").length,
-    employees: employees.filter((e) => e.department === "Design"),
-  },
-  {
-    id: "sales-department",
-    name: "Sales Department",
-    employeeCount: employees.filter((e) => e.department === "Sales").length,
-    employees: employees.filter((e) => e.department === "Sales"),
-  },
-  {
-    id: "project-manager",
-    name: "Project Manager Department",
-    employeeCount: employees.filter((e) => e.department === "Project Manager")
-      .length,
-    employees: employees.filter((e) => e.department === "Project Manager"),
-  },
-  {
-    id: "marketing-department",
-    name: "Marketing Department",
-    employeeCount: employees.filter((e) => e.department === "Marketing").length,
-    employees: employees.filter((e) => e.department === "Marketing"),
-  },
-];
+const DepartmentDetailsPage = async ({ params }: Props) => {
+  let { slug } = await params;
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+  if (slug.endsWith("-department")) {
+    slug = slug.replace("-department", "");
+  }
 
-export default function DepartmentPage({ params }: Props) {
-  const department = departments.find(
-    (dept) => `${dept.id}-department` === params.slug || dept.id === params.slug
+  const departmentName = slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
+  const filteredEmployees = employees.filter(
+    (emp) => emp.department.toLowerCase() === departmentName.toLowerCase()
   );
-  console.log("Slug from params:", params.slug);
 
-  if (!department) return notFound();
+  if (filteredEmployees.length === 0) return notFound();
+  console.log(slug);
 
   return (
-    <div className='p-6 border rounded-2xl'>
-      {/* <h1 className='text-xl font-semibold'>Details Page</h1>
-      <p>Slug: {params.slug}</p> */}
-      <div className='flex justify-between items-center mb-6'>
-        <div className='flex items-center border border-[#A2A1A81A] px-3 py-2 rounded-md w-72'>
-          <Search className='w-4 h-4  mr-2' />
-          <input
-            type='text'
-            placeholder='Search'
-            className='bg-transparent w-full focus:outline-none text-sm'
-          />
-        </div>
+    <div className='p-6 space-y-4'>
+      <Link
+        href='/departments'
+        className='inline-flex items-center text-sm text-muted-foreground hover:text-foreground'>
+        <ArrowLeft className='w-4 h-4 mr-2' />
+        Back to Departments
+      </Link>
 
-        <div className='flex gap-2'>
-          <Button className=' text-sm px-4'>+ Add New Employee</Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant='outline'
-                className='text-sm flex items-center gap-2'>
-                <Filter className='w-4 h-4' /> Filter
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className='p-4 text-sm'>
-              <p>Filter options go here...</p>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
+      <h1 className='text-2xl font-semibold'>{departmentName} Department</h1>
+
       <Table>
         <TableCaption>Employee Records</TableCaption>
         <TableHeader>
@@ -426,7 +383,7 @@ export default function DepartmentPage({ params }: Props) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {department.employees.map((emp, i) => (
+          {filteredEmployees.map((emp, i) => (
             <TableRow key={i}>
               <TableCell className='font-medium flex items-center gap-2'>
                 <Image
@@ -467,4 +424,6 @@ export default function DepartmentPage({ params }: Props) {
       </Table>
     </div>
   );
-}
+};
+
+export default DepartmentDetailsPage;
