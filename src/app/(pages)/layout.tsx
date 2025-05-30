@@ -9,6 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+
     <html lang='en'>
       <body className='min-h-screen relative overflow-x-hidden'>
         <HydrationProvider>
@@ -20,6 +21,7 @@ export default function RootLayout({
             </main>
           </div>
         </HydrationProvider>
+
       </body>
     </html>
   );

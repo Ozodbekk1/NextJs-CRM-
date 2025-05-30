@@ -2,15 +2,15 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema, LoginFormValues } from "../schemas/loginSchema";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Input } from "@/components/ui/input";
 import Image from "next/image";
-import icon from "../../../../public/img/logo.svg";
-import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "@/components/ui/input";
+import { loginSchema, LoginFormValues } from "../schemas/loginSchema";
+import { Checkbox } from "@/components/ui/checkbox";
+import icon from "../../../../public/img/logo.svg";
 
 const Login = () => {
   const {
@@ -38,6 +38,7 @@ const Login = () => {
       <div className='flex flex-col items-center gap-4 text-center'>
         <div className='rounded-full bg-violet-100 dark:bg-violet-900 p-3'>
           <Image alt='icon' src={icon} width={300} height={300} />
+
         </div>
         <h1 className='text-4xl font-bold'>Welcome 👋</h1>
         <p className='text-muted-foreground text-lg'>Please login here</p>
@@ -86,11 +87,13 @@ const Login = () => {
               className='text-sm leading-none peer-disabled:cursor-not-allowed '>
               Remember Me
             </label>
+
           </div>
           <Link href='/forgotPassword' className='text-violet-500 my-2 mx-2'>
             Forgot Password?
           </Link>
         </div>
+
 
         <button
           type='submit'
@@ -100,7 +103,7 @@ const Login = () => {
         </button>
       </form>
     </div>
+
   );
 };
-
 export default Login;
