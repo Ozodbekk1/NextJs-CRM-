@@ -1,5 +1,7 @@
 /** @format */
+"use client";
 
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, Eye, Pencil, Trash } from "lucide-react";
 import Link from "next/link";
@@ -333,12 +335,9 @@ const employees: Employee[] = [
   },
 ];
 
-type Props = {
-  params: { slug: string };
-};
-
-const DepartmentDetailsPage = async ({ params }: Props) => {
-  const { slug } = await params;
+export default function DetailsPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
 
   const normalizedDept = slug.replace("-department", "").toLowerCase();
 
@@ -416,6 +415,4 @@ const DepartmentDetailsPage = async ({ params }: Props) => {
       </Table>
     </div>
   );
-};
-
-export default DepartmentDetailsPage;
+}
