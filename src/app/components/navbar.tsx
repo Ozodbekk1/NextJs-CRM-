@@ -13,6 +13,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useAppStore } from "@/store/app";
+import { Input } from "@/components/ui/input";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -24,7 +25,7 @@ export const Navbar = () => {
   };
 
   const getTimeBasedSubtitle = () => {
-    const hour = new Date().getHours(); // Dynamic hour
+    const hour = new Date().getHours();
     if (hour >= 5 && hour < 12) return "Good Morning";
     if (hour >= 12 && hour < 17) return "Good Afternoon";
     return "Good Evening";
@@ -65,22 +66,27 @@ export const Navbar = () => {
   };
 
   return (
+
     <div className='flex items-center h-[9vh] fixed top-0 left-0 lg:left-64 right-0 z-30 pt-4 bg-white dark:bg-[#16151C] px-4 sm:px-6'>
       <div className='flex flex-1 items-center justify-between'>
         <div className='lg:hidden pr-4'>
+
           <Menu
             size={25}
             onClick={handleOpenDrawer}
             className='cursor-pointer'
           />
         </div>
+
         <div className='hidden md:block'>
+
           <Header
             greeting={headerProps?.greeting}
             subtitle={headerProps?.subtitle}
             breadcrumbs={headerProps?.breadcrumbs}
           />
         </div>
+
 
         <div className='flex items-center gap-2 sm:gap-4'>
           <div className='flex items-center bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[10px] px-3'>
@@ -94,20 +100,25 @@ export const Navbar = () => {
 
           <Button variant='secondary' className='p-2'>
             <BellRing className='h-5 w-5' />
+
           </Button>
 
           <Popover>
             <PopoverTrigger asChild>
+
               <button className='flex items-center space-x-2 rounded-lg p-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors'>
+
                 <Image
                   src='/img/user.png'
                   alt='User'
                   width={36}
                   height={36}
+
                   className='rounded-xl border border-gray-300 dark:border-gray-600 object-cover h-11 w-full'
                 />
                 <div className='hidden sm:flex flex-col items-start'>
                   <span className='text-sm font-medium text-gray-800 dark:text-gray-200'>
+
                     Jamshidbek
                   </span>
                   <span className='text-xs text-gray-500 dark:text-gray-400'>
@@ -115,10 +126,13 @@ export const Navbar = () => {
                   </span>
                 </div>
                 <svg
+
+
                   className='h-6 w-6 text-gray-500 dark:text-gray-400'
                   fill='none'
                   stroke='currentColor'
                   viewBox='0 0 24 24'>
+
                   <path
                     strokeLinecap='round'
                     strokeLinejoin='round'
@@ -128,6 +142,7 @@ export const Navbar = () => {
                 </svg>
               </button>
             </PopoverTrigger>
+
             <PopoverContent className='w-48 p-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-md shadow-lg'>
               <div className='grid gap-1'>
                 <Button
@@ -141,6 +156,7 @@ export const Navbar = () => {
                   className='w-full justify-start text-red-500 hover:text-red-600 hover:bg-gray-100 dark:hover:bg-gray-700'
                   onClick={handleLogout}>
                   <LogOut className='mr-2 h-4 w-4' />
+
                   Log Out
                 </Button>
               </div>

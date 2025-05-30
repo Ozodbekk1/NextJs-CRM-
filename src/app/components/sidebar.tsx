@@ -73,7 +73,7 @@ export const Sidebar = () => {
   ];
 
   const renderSidebarContent = () => (
-    <div className="flex flex-col p-4 h-full rounded-[20px] bg-[#A2A1A80D] dark:bg-[#A2A1A80D]">
+    <div className="flex flex-col p-4 h-full rounded-[20px] bg-secondary lg:bg-card">
       <div className="flex items-center mb-6 gap-2">
         <Image src="/img/logo.svg" alt="HRMS Logo" width={36} height={36} />
         <span className="text-2xl">HRMS</span>
@@ -108,20 +108,19 @@ export const Sidebar = () => {
 
   return (
     <>
-      {/* Static sidebar on desktop (lg and up) */}
-      <div className="hidden lg:block fixed top-0 left-0 z-30 w-64 h-screen bg-white dark:bg-[#16151C] p-4">
+      <div className="hidden lg:block  fixed top-0 left-0 z-30 w-64 h-screen  p-4">
         {renderSidebarContent()}
       </div>
 
       {isDrawer && (
         <div
           onClick={() => setIsDrawer(false)}
-          className="fixed inset-0 z-40  bg-opacity-30 backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 z-40 bg-opacity-30 backdrop-blur-sm transition-opacity"
         />
       )}
 
       <div
-        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-white dark:bg-[#16151C] p-4 transition-transform transform lg:hidden ${
+        className={`fixed top-0 left-0 z-50 h-screen w-64  p-4 transition-transform transform lg:hidden ${
           isDrawer ? "translate-x-0" : "-translate-x-full"
         }`}
       >
