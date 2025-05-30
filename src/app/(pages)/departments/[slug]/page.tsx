@@ -1,7 +1,5 @@
 /** @format */
-// "use client"
 
-import { notFound } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, Eye, Pencil, Trash } from "lucide-react";
 import Link from "next/link";
@@ -15,10 +13,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-type Props = {
-  params: { slug: string };
-};
 
 export type Employee = {
   id: string;
@@ -234,7 +228,7 @@ const employees: Employee[] = [
     designation: "Sr. Project Manager",
     type: "Office",
     status: "Permanent",
-    department: "Project Manager",
+    department: "Project",
   },
   {
     id: "567890124",
@@ -245,7 +239,7 @@ const employees: Employee[] = [
     designation: "Project Manager",
     type: "Office",
     status: "Permanent",
-    department: "Project Manager",
+    department: "Project",
   },
   {
     id: "567890125",
@@ -256,7 +250,7 @@ const employees: Employee[] = [
     designation: "Project Manager",
     type: "Office",
     status: "Permanent",
-    department: "Project Manager",
+    department: "Project",
   },
   {
     id: "567890126",
@@ -267,7 +261,7 @@ const employees: Employee[] = [
     designation: "Project Manager",
     type: "Office",
     status: "Permanent",
-    department: "Project Manager",
+    department: "Project",
   },
   {
     id: "567890127",
@@ -278,7 +272,7 @@ const employees: Employee[] = [
     designation: "Project Manager",
     type: "Office",
     status: "Permanent",
-    department: "Project Manager",
+    department: "Project",
   },
 
   // Marketing Department
@@ -339,24 +333,22 @@ const employees: Employee[] = [
   },
 ];
 
+type Props = {
+  params: { slug: string };
+};
+
 const DepartmentDetailsPage = async ({ params }: Props) => {
-  let { slug } = await params;
+  const { slug } = await params;
 
-  if (slug.endsWith("-department")) {
-    slug = slug.replace("-department", "");
-  }
-
-  const departmentName = slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+  const normalizedDept = slug.replace("-department", "").toLowerCase();
 
   const filteredEmployees = employees.filter(
-    (emp) => emp.department.toLowerCase() === departmentName.toLowerCase()
+    (emp) => emp.department.toLowerCase() === normalizedDept
   );
 
-  if (filteredEmployees.length === 0) return notFound();
-  console.log(slug);
+  if (filteredEmployees.length === 0) {
+    return <div>No directory found</div>;
+  }
 
   return (
     <div className='p-6 space-y-4'>
@@ -367,7 +359,7 @@ const DepartmentDetailsPage = async ({ params }: Props) => {
         Back to Departments
       </Link>
 
-      <h1 className='text-2xl font-semibold'>{departmentName} Department</h1>
+      <h1 className='text-2xl font-semibold'>{normalizedDept} Department</h1>
 
       <Table>
         <TableCaption>Employee Records</TableCaption>

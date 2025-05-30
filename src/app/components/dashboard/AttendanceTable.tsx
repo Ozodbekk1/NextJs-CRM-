@@ -1,4 +1,7 @@
+/** @format */
+
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const employees = [
   {
@@ -62,13 +65,13 @@ const employees = [
 export default function AttendanceTable() {
   return (
     <Card>
-      <CardContent className="p-6 overflow-auto">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Attendance Overview</h2>
-          <div className="text-sm underline cursor-pointer">View All</div>
+      <CardContent className='p-6 overflow-auto'>
+        <div className='flex justify-between items-center mb-4'>
+          <h2 className='text-lg font-semibold'>Attendance Overview</h2>
+          <div className='text-sm underline cursor-pointer'>View All</div>
         </div>
-        <table className="w-full text-sm">
-          <thead className="text-muted-foreground text-left">
+        <table className='w-full text-sm'>
+          <thead className='text-muted-foreground text-left'>
             <tr>
               <th>Employee Name</th>
               <th>Designation</th>
@@ -79,12 +82,15 @@ export default function AttendanceTable() {
           </thead>
           <tbody>
             {employees.map((emp, idx) => (
-              <tr key={idx} className="border-t">
-                <td className="flex items-center gap-2 py-2">
-                  <img
+              <tr key={idx} className='border-t'>
+                <td className='flex items-center gap-2 py-2'>
+                  <Image
+                    width={8}
+                    height={8}
+                    quality={100}
                     src={emp.image}
-                    alt="avatar"
-                    className="w-8 h-8 rounded-full"
+                    alt='avatar'
+                    className='w-8 h-8 rounded-full'
                   />
                   {emp.name}
                 </td>
@@ -97,8 +103,7 @@ export default function AttendanceTable() {
                       emp.status === "On Time"
                         ? "bg-green-100 text-green-600"
                         : "bg-red-100 text-red-600"
-                    }`}
-                  >
+                    }`}>
                     {emp.status}
                   </span>
                 </td>

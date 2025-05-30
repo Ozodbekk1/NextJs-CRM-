@@ -72,7 +72,7 @@ const departments = [
     ],
   },
   {
-    name: "Project Manager Department",
+    name: "Project Department",
     members: 18,
     people: [
       {
