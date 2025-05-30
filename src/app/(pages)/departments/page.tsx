@@ -6,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 const departments = [
   {
@@ -134,7 +135,8 @@ const departments = [
   },
 ];
 
-const Departments = () => {
+const Departments = async () => {
+  // const { slug } = await params;
   return (
     <>
       <div className='p-6  space-y-6 border rounded-2xl'>
@@ -150,9 +152,11 @@ const Departments = () => {
                       {dept.members} Members
                     </p>
                   </div>
-                  <button className='text-sm text-violet-500 font-medium'>
+                  <Link
+                    href={`/departments/${dept.name.toLowerCase().replace(/\s+/g, "-")}`}
+                    className='text-sm text-violet-500 font-medium'>
                     View All
-                  </button>
+                  </Link>
                 </div>
                 <div>
                   <Separator />
