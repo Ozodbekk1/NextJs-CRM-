@@ -33,6 +33,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, Pencil, Trash, Filter, Search } from "lucide-react";
+import Link from "next/link";
 
 const employeesData = [
   {
@@ -142,7 +143,9 @@ const AllEmployees = () => {
                   </span>
                 </TableCell>
                 <TableCell className="flex space-x-3 text-gray-600 dark:text-gray-300">
-                  <Eye className="w-4 h-4 cursor-pointer hover:text-purple-600" />
+                  <Link href={`/employees/add-new-employee`}>
+                    <Eye className="w-4 h-4 cursor-pointer hover:text-purple-600" />
+                  </Link>
                   <Pencil className="w-4 h-4 cursor-pointer hover:text-yellow-500" />
                   <Trash className="w-4 h-4 cursor-pointer hover:text-red-500" />
                 </TableCell>
