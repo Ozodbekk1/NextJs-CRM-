@@ -1,3 +1,5 @@
+/** @format */
+
 // import { NextRequest, NextResponse } from "next/server";
 
 // const PUBLIC_ROUTES = ["/login"];
@@ -18,6 +20,7 @@
 
 //   return NextResponse.next();
 // }
+
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {

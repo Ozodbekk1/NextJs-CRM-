@@ -350,17 +350,15 @@ export default function DetailsPage() {
   }
 
   return (
-    <div className="p-6 space-y-4">
+    <div className='p-6 space-y-4'>
       <Link
-        href="/departments"
-        className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ArrowLeft className="w-4 h-4 mr-2" />
+        href='/departments'
+        className='inline-flex items-center text-sm text-muted-foreground hover:text-foreground'>
+        <ArrowLeft className='w-4 h-4 mr-2' />
         Back to Departments
       </Link>
 
       <h1 className='text-2xl font-semibold'>{normalizedDept} Department</h1>
-
 
       <Table>
         <TableCaption>Employee Records</TableCaption>
@@ -378,13 +376,13 @@ export default function DetailsPage() {
         <TableBody>
           {filteredEmployees.map((emp, i) => (
             <TableRow key={i}>
-              <TableCell className="font-medium flex items-center gap-2">
+              <TableCell className='font-medium flex items-center gap-2'>
                 <Image
                   src={emp.avatar}
-                  alt="Avatar"
+                  alt='Avatar'
                   width={36}
                   height={36}
-                  className="rounded-full w-9 h-9 object-cover border border-gray-300 dark:border-gray-600"
+                  className='rounded-full w-9 h-9 object-cover border border-gray-300 dark:border-gray-600'
                 />
                 {emp.name}
               </TableCell>
@@ -393,14 +391,14 @@ export default function DetailsPage() {
               <TableCell>{emp.role}</TableCell>
               <TableCell>{emp.type}</TableCell>
               <TableCell>
-                <span className="text-xs px-2 py-1 rounded-md bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-white">
+                <span className='text-xs px-2 py-1 rounded-md bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-white'>
                   {emp.status}
                 </span>
               </TableCell>
-              <TableCell className="flex space-x-3 text-gray-600 dark:text-gray-300">
-                <Eye className="w-4 h-4 cursor-pointer hover:text-purple-600" />
-                <Pencil className="w-4 h-4 cursor-pointer hover:text-yellow-500" />
-                <Trash className="w-4 h-4 cursor-pointer hover:text-red-500" />
+              <TableCell className='flex space-x-3 text-gray-600 dark:text-gray-300'>
+                <Eye className='w-4 h-4 cursor-pointer hover:text-purple-600' />
+                <Pencil className='w-4 h-4 cursor-pointer hover:text-yellow-500' />
+                <Trash className='w-4 h-4 cursor-pointer hover:text-red-500' />
               </TableCell>
             </TableRow>
           ))}
@@ -409,8 +407,7 @@ export default function DetailsPage() {
           <TableRow>
             <TableCell
               colSpan={7}
-              className="text-center text-sm text-gray-500 dark:text-gray-400"
-            >
+              className='text-center text-sm text-gray-500 dark:text-gray-400'>
               Showing 1 to {employees.length}
             </TableCell>
           </TableRow>
